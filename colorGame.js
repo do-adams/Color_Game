@@ -14,4 +14,14 @@ colorDisplay.textContent = pickedColor;
 
 for(let i = 0; i < squares.length; i++) {
 	squares[i].style.backgroundColor = colors[i];
+
+	squares[i].addEventListener("click", function() {
+		let clickedColor = this.style.backgroundColor;
+		if (clickedColor === pickedColor) {
+			alert("Correct!");
+		} else {
+			alert("Wrong!");
+		}
+	});
+
 }
