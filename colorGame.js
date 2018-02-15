@@ -10,6 +10,8 @@ let colors = [
 let squares = document.querySelectorAll(".square");
 let pickedColor = colors[3];
 let colorDisplay = document.getElementById("colorDisplay");
+let messageDisplay = document.querySelector("#message");
+
 colorDisplay.textContent = pickedColor;
 
 for(let i = 0; i < squares.length; i++) {
@@ -18,10 +20,11 @@ for(let i = 0; i < squares.length; i++) {
 	squares[i].addEventListener("click", function() {
 		let clickedColor = this.style.backgroundColor;
 		if (clickedColor === pickedColor) {
-			alert("Correct!");
+			messageDisplay.textContent = "Correct!";
 		} else {
-			alert("Wrong!");
+			// set to the page background color
+			this.style.backgroundColor = "#232323";
+			messageDisplay.textContent = "Try Again";
 		}
 	});
-
 }
