@@ -21,10 +21,17 @@ for(let i = 0; i < squares.length; i++) {
 		let clickedColor = this.style.backgroundColor;
 		if (clickedColor === pickedColor) {
 			messageDisplay.textContent = "Correct!";
+			changeColors(clickedColor);
 		} else {
 			// set to the page background color
 			this.style.backgroundColor = "#232323";
 			messageDisplay.textContent = "Try Again";
 		}
 	});
+}
+
+function changeColors(color) {
+	for(let i = 0; i < squares.length; i++) {
+		squares[i].style.backgroundColor = color;
+	}
 }
