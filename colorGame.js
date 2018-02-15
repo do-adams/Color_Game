@@ -6,6 +6,18 @@ let colorDisplay = document.getElementById("colorDisplay");
 let messageDisplay = document.querySelector("#message");
 let h1 = document.querySelector("h1");
 let resetButton = document.querySelector("#reset");
+let easyBtn = document.querySelector("#easyBtn");
+let hardBtn = document.querySelector("#hardBtn");
+
+easyBtn.addEventListener("click", function() {
+	hardBtn.classList.remove("selected");
+	this.classList.add("selected");
+});
+
+hardBtn.addEventListener("click", function() {
+		easyBtn.classList.remove("selected");
+		this.classList.add("selected");
+});
 
 resetButton.addEventListener("click", function() {
 	colors = generateRandomColors(6);
