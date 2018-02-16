@@ -1,4 +1,5 @@
-let colors = generateRandomColors(6);
+let numSquares = 6;
+let colors = generateRandomColors(numSquares);
 
 let squares = document.querySelectorAll(".square");
 let pickedColor = pickColor();
@@ -12,15 +13,34 @@ let hardBtn = document.querySelector("#hardBtn");
 easyBtn.addEventListener("click", function() {
 	hardBtn.classList.remove("selected");
 	this.classList.add("selected");
+	numSquares = 3;
+	colors = generateRandomColors(numSquares);
+	pickedColor = pickColor();
+	colorDisplay.textContent = pickedColor;
+	for(let i = 0; i < squares.length; i++) {
+		if (colors[i]) {
+			squares[i].style.backgroundColor = colors[i];
+		} else {
+			squares[i].style.display = "none";
+		}
+	}
 });
 
 hardBtn.addEventListener("click", function() {
 		easyBtn.classList.remove("selected");
 		this.classList.add("selected");
+		numSquares = 6;
+		colors = generateRandomColors(numSquares);
+		pickedColor = pickColor();
+		colorDisplay.textContent = pickedColor;
+		for(let i = 0; i < squares.length; i++) {
+				squares[i].style.backgroundColor = colors[i];
+				squares[i].style.display = "block";
+		}
 });
 
 resetButton.addEventListener("click", function() {
-	colors = generateRandomColors(6);
+	colors = generateRandomColors(numSquares);
 	pickedColor = pickColor();
 	colorDisplay.textContent = pickedColor;
 	for(let i = 0; i < squares.length; i++) {
