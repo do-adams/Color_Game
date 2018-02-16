@@ -1,3 +1,5 @@
+"use strict";
+
 let numSquares = 6;
 let colors = generateRandomColors(numSquares);
 
