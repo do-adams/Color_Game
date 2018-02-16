@@ -15,7 +15,18 @@ let modeButtons = document.querySelectorAll(".mode");
 init();
 
 function init() {
-	// mode buttons event listeners
+
+	setupModeButtons();
+	setupSquares();
+
+	resetButton.addEventListener("click", function() {
+		reset();
+	});
+
+	reset();
+}
+
+function setupModeButtons() {
 	for(let i = 0; i < modeButtons.length; i++) {
 		modeButtons[i].addEventListener("click", function() {
 			modeButtons[0].classList.remove("selected");
@@ -26,8 +37,9 @@ function init() {
 			reset();
 		});
 	}
+}
 
-	// squares event listeners
+function setupSquares() {
 	for(let i = 0; i < squares.length; i++) {
 		squares[i].addEventListener("click", function() {
 			let clickedColor = this.style.backgroundColor;
@@ -45,15 +57,9 @@ function init() {
 			}
 		});
 	}
-
-	resetButton.addEventListener("click", function() {
-		reset();
-	});
-
-	// pick and set colors and page text
-	reset();
 }
 
+// pick and set colors and page text
 function reset() {
 	colors = generateRandomColors(numSquares);
 	pickedColor = pickColor();
