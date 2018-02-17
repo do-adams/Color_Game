@@ -26,8 +26,9 @@ let game = (() => {
 	function _setupModeButtons() {
 		for(let i = 0; i < _modeButtons.length; i++) {
 			_modeButtons[i].addEventListener("click", function() {
-				_modeButtons[0].classList.remove("selected");
-				_modeButtons[1].classList.remove("selected");
+				for(let j = 0; j < _modeButtons.length; j++) {
+					_modeButtons[j].classList.remove("selected");
+				}
 				this.classList.add('selected');
 
 				_numSquares = this.textContent.toLowerCase() === "easy" ? 3 : 6;
