@@ -7,7 +7,7 @@ body {
 .square {
 	width: 30%;
 	background: purple;
-	padding-bottom: 30%;
+	padding-bottom: 30%; /* sets the height indirectly */
 	float: left;
 	margin: 1.66%;
 	border-radius: 15%;
